@@ -199,8 +199,10 @@ const breadcrumbs: BreadcrumbItem[] = [
                                 size="sm"
                                 as-child
                             >
+                                <!-- eslint-disable-next-line vue/no-v-text-v-html-on-component -->
                                 <Link :href="link.url" v-html="link.label" />
                             </Button>
+                            <!-- eslint-disable-next-line vue/no-v-text-v-html-on-component -->
                             <span
                                 v-else
                                 class="px-2 py-1 text-sm text-muted-foreground"

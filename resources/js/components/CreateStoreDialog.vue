@@ -13,7 +13,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { useForm } from '@inertiajs/vue3';
 
-const props = defineProps<{
+defineProps<{
     open: boolean;
 }>();
 

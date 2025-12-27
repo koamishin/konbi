@@ -145,9 +145,9 @@ const updateQuantity = (index: number, delta: number) => {
     }
 };
 
-const removeFromCart = (index: number) => {
     cart.value.splice(index, 1);
 };
+*/
 
 const subtotal = computed(() =>
     cart.value.reduce((sum, item) => sum + item.price * item.cartQty, 0),

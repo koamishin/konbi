@@ -5,7 +5,7 @@ import { computed } from 'vue';
 
 const page = usePage();
 const storeName = computed(() => {
-    // @ts-ignore
+    // @ts-expect-error
     return page.props.auth.store?.name || 'Konbi System';
 });
 </script>
