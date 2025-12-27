@@ -145,10 +145,6 @@ const updateQuantity = (index: number, delta: number) => {
     }
 };
 
-    cart.value.splice(index, 1);
-};
-*/
-
 const subtotal = computed(() =>
     cart.value.reduce((sum, item) => sum + item.price * item.cartQty, 0),
 );
