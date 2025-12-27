@@ -5,7 +5,7 @@ import { computed } from 'vue';
 
 const page = usePage();
 const storeName = computed(() => {
-    // @ts-expect-error
+    // @ts-expect-error - auth.store types are not fully defined in Inertia page props
     return page.props.auth.store?.name || 'Konbi System';
 });
 </script>

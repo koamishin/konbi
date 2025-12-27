@@ -22,11 +22,12 @@ test('can create global product', function () {
     $response = $this->actingAs($user)->post(route('products.store'), [
         'name' => 'Global Product',
         'sku' => 'GP-001',
+        'category_name' => 'Test Category',
         'is_active' => true,
     ]);
 
     $response->assertRedirect(route('products.index'));
-    
+
     $this->assertDatabaseHas('products', [
         'name' => 'Global Product',
         'store_id' => null,
@@ -40,11 +41,12 @@ test('store manager creates product scoped to store', function () {
     $response = $this->actingAs($user)->post(route('products.store'), [
         'name' => 'Store Product',
         'sku' => 'SP-001',
+        'category_name' => 'Test Category',
         'is_active' => true,
     ]);
 
     $response->assertRedirect(route('products.index'));
-    
+
     $this->assertDatabaseHas('products', [
         'name' => 'Store Product',
         'store_id' => $store->id,
@@ -63,12 +65,12 @@ test('store manager sees global and own products but not others', function () {
 
     // We need to inspect the data passed to the view, or just query via model acting as user
     // Since we are testing the Controller/Model scope integration:
-    
+
     $this->actingAs($user1);
-    
+
     // Test the scope directly
     $visibleProducts = Product::all();
-    
+
     expect($visibleProducts->contains($globalProduct))->toBeTrue();
     expect($visibleProducts->contains($store1Product))->toBeTrue();
     expect($visibleProducts->contains($store2Product))->toBeFalse();

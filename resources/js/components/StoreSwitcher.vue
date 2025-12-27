@@ -12,14 +12,12 @@ import {
     SidebarMenu,
     SidebarMenuButton,
     SidebarMenuItem,
-    useSidebar,
 } from '@/components/ui/sidebar';
 import { router, usePage } from '@inertiajs/vue3';
 import { ChevronsUpDown, Plus, Store } from 'lucide-vue-next';
 import { computed, ref } from 'vue';
 
 const page = usePage();
-const { isMobile } = useSidebar();
 const isCreateOpen = ref(false);
 
 const activeStore = computed(() => page.props.auth.store);
